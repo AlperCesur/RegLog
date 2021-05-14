@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\REGLOG\REGLOG\APP_DATA\DATABASE1.MDF.dbo.Table' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Table">
+    <Key>
+      <PropertyRef Name="Ad" />
+      <PropertyRef Name="Soyad" />
+      <PropertyRef Name="Memleket" />
+    </Key>
+    <Property Name="Ad" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Soyad" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Memleket" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\REGLOG\REGLOG\APP_DATA\DATABASE1.MDF.dbo.Table2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Table2">
+    <Key>
+      <PropertyRef Name="Uyelik_Durumu" />
+    </Key>
+    <Property Name="Uyelik_Durumu" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Table3">
+    <Key>
+      <PropertyRef Name="Kullanıcı_Adı" />
+    </Key>
+    <Property Name="Kullanıcı_Adı" Type="int" Nullable="false" />
+    <Property Name="Şifre" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="Database1ModelStoreContainer">
+    <EntitySet Name="Table3" EntityType="Self.Table3" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table" EntityType="Self.Table" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[Table].[Ad] AS [Ad], 
+[Table].[Soyad] AS [Soyad], 
+[Table].[Memleket] AS [Memleket]
+FROM [dbo].[Table] AS [Table]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Table2" EntityType="Self.Table2" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[Table2].[Uyelik_Durumu] AS [Uyelik_Durumu]
+FROM [dbo].[Table2] AS [Table2]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
